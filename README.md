@@ -1,6 +1,7 @@
-# Drug Classifier
+# MLOps - Drug Classifier
 
-A machine learning project to classify drug types based on patient characteristics.
+The repository is used for practice and demonstrate how to perform MLOps with AWS. The machine learning model used in the repository is to classify drug types based on patient characteristics.
+Kaggle Link for Dataset: https://www.kaggle.com/datasets/prathamtripathi/drug-classification
 
 ## Project Structure
 
@@ -46,3 +47,5 @@ python train.py
 - Model evaluation with accuracy and F1 score
 - Confusion matrix visualization
 - Model persistence with skops
+
+## Task List
