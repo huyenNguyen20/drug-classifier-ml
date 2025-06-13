@@ -1,21 +1,22 @@
 install:
-    pip install --upgrade pip &&\
-        pip install -r requirements.txt
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
 
 format:
-    black *.py
+	black *.py
 
 train:
-    python train.py
+	python train.py
 
 eval:
-    echo "## Model Metrics" > report.md
-    cat ./Results/metrics.txt >> report.md
-   
-    echo '\n## Confusion Matrix Plot' >> report.md
-    echo '![Confusion Matrix](./Results/model_results.png)' >> report.md
-   
-    cml comment create report.md
+	echo "## Model Metrics" > report.md
+	cat ./Results/metrics.txt >> report.md
+	
+	echo "" >> report.md
+	echo "## Confusion Matrix Plot" >> report.md
+	echo "![Confusion Matrix](./Results/model_results.png)" >> report.md
+	
+	cml comment create report.md
 
 update-branch:
 	git config --global user.name $(USER_NAME)
@@ -24,14 +25,14 @@ update-branch:
 	git push --force origin HEAD:update
 	
 hf-login:
-    git pull origin update
-    git switch update
-    pip install -U "huggingface_hub[cli]"
-    huggingface-cli login --token $(HF) --add-to-git-credential
+	git pull origin update
+	git switch update
+	pip install -U "huggingface_hub[cli]"
+	huggingface-cli login --token $(HF) --add-to-git-credential
 
 push-hub:
-    huggingface-cli upload kingabzpro/Drug-Classification ./App --repo-type=space --commit-message="Sync App files"
-    huggingface-cli upload kingabzpro/Drug-Classification ./Model /Model --repo-type=space --commit-message="Sync Model"
-    huggingface-cli upload kingabzpro/Drug-Classification ./Results /Metrics --repo-type=space --commit-message="Sync Model"
+	huggingface-cli upload huyenNguyen20/drug-classifier-ml ./App --repo-type=space --commit-message="Sync App files"
+	huggingface-cli upload huyenNguyen20/drug-classifier-ml ./Model --repo-type=space --path-in-repo=Model --commit-message="Sync Model"
+	huggingface-cli upload huyenNguyen20/drug-classifier-ml ./Results --repo-type=space --path-in-repo=Metrics --commit-message="Sync Metrics"
 
 deploy: hf-login push-hub
