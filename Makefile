@@ -1,6 +1,6 @@
 install:
 	pip install --upgrade pip &&\
-		pip install -r requirements.txt --python-version "3.13"
+		pip install -r requirements.txt 
 
 format:
 	black *.py

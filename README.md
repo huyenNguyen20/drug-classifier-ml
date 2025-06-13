@@ -49,3 +49,9 @@ python train.py
 - Model persistence with skops
 
 ## Task List
+- [ ] Create a CICD to deploy the model on gradio
+- [ ] Use DVC for document version control and S3 for document registry
+- [ ] Use Amazon SageMaker Pipeline and Endpoint to perform data preprocessing, training, evaluation, deployement and inference
+- [ ] Use real-time and batch inference in SageMaker
+- [ ] Use Amazon Glue for data preprocessing
+- [ ] Creae cdk for deployment
