@@ -1,0 +1,6 @@
+[core]
+    remote = s3-model-store
+['remote "s3-model-store"']
+    url = s3://mlops-dvc-bucket-huyen/trained-model/
+['remote "s3-data-store"']
+    url = s3://mlops-dvc-bucket-huyen/datasets/

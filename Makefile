@@ -1,7 +1,8 @@
 install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt &&\
-		pip install black
+		pip install black &&\
+		pip install dvc
 
 format:
 	black *.py

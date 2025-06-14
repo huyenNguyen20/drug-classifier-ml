@@ -1,0 +1,5 @@
+outs:
+- md5: d200d36675e5b3a3f45a2204d09fbb94
+  size: 2710741
+  hash: md5
+  path: drug_pipeline.skops
